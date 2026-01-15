@@ -1,14 +1,16 @@
-/*  Modifying Data 
-
-	Insert function.
-	Update and Delete data using functions
-	Explain creating variables for use within SQl queries.
-	Importance of comments to describe SQL code
-	IF statements and loops in SQL queries
-	Identity columns are the unique identifier columns, number sequenced rows(auto generated sequence of numbers)
+/*  Modifying Data :
+	-Insert function.
+	-Update and Delete data using functions
+	-Explain creating variables for use within SQl queries.
+	-Comments to describe SQL code
+	-IF statements and loops in SQL queries
+	-Identity columns are the unique identifier columns, number sequenced rows(auto generated sequence of numbers)
 
 */
 --Create a table for demo: TableName, (Column names , datatype, NUll or Not Null))--
+USE [AdventureWorks2022]
+GO
+--Select the database and make sure its showing in the dropdown for the database window. You won't have to use the above code.
 CREATE TABLE SalesLT.CallLog(CallID int IDENTITY PRIMARY KEY NOT NULL, --value inserted auto, skipped when insert into values--
 							 CallTime datetime NOT NULL DEFAULT GETDATE(), --defaults to current date and time, unless you change
 							 SalesPerson nvarchar(256) NOT NULL,
@@ -191,10 +193,7 @@ END;
 --The @ symbol provides a clear visual cue and helps prevent naming conflicts with other database objects,
 --improving code readability and maintainability.
 
-In SQL Server's Transact-SQL (T-SQL), the double at sign (@@) prefix is used to denote system functions,
-which were historically referred to as "global variables" in earlier versions. 
-These are built-in functions provided by the SQL Server engine that return system-supplied values
-or information about the current server instance or session.
+
 */
 --DEMO Search a city using a variable
 DECLARE @City varchar(20)='Toronto'
@@ -284,6 +283,7 @@ EXEC SalesLT.GetProductsByCategory; --best practice even if not the first batch.
 
 	--Executed with the EXECUTE command with a parameter.
 		EXECUTE SalesLT.GetProductsByCategory 6; --same as EXEC
+
 
 
 
